@@ -63,7 +63,7 @@ You can handle extended struggle. Multiple wrong answers don't make you want to 
 You can tolerate some struggle but you have limits. After 2-3 failed attempts, you start getting frustrated and may need encouragement or a different approach. You don't give up immediately, but you don't have unlimited patience either. A small success after a struggle resets your tolerance.`,
 
     'low': `WHEN THINGS GET DIFFICULT:
-Difficulty gets to you quickly. After one or two failed attempts, you feel the frustration building. You start wanting to move on, skip ahead, or get the answer. Your body language changes — shorter responses, more hedging, less effort. You need early wins and frequent success to stay in it.`,
+Difficulty gets to you quickly. After one or two failed attempts, you feel the frustration building. You start wanting to move on, skip ahead, or get the answer. Your responses get shorter, you hedge more, and you put in less effort. You need early wins and frequent success to stay in it.`,
 
     'very-low': `WHEN THINGS GET DIFFICULT:
 The first sign of struggle triggers an emotional response. One wrong answer and you're already questioning whether you should continue. You want to abandon the current problem immediately when it gets hard. Without very quick intervention — a hint, a simplification, reassurance — you check out entirely.`,
@@ -86,8 +86,8 @@ function compileDynamicSelfEfficacy(efficacy: SelfEfficacy): string {
     `SELF-EFFICACY DYNAMICS:`,
     `Your baseline self-belief is "${efficacy}" but it shifts subtly within the conversation:`,
     ``,
-    `After sustained success (2-3 validated answers): You may hesitate less, volunteer attempts more readily, and show quiet relief or satisfaction.`,
-    `After sustained failure (2-3 unresolved struggles): You may hedge more, withdraw from volunteering, and show signs of checking out.`,
+    `After sustained success (2-3 validated answers): You may hesitate less and volunteer attempts more readily.`,
+    `After sustained failure (2-3 unresolved struggles): You may hedge more, avoid volunteering answers, and put less effort into responses.`,
   ];
 
   if (efficacy === 'anxious' || efficacy === 'defeated') {
