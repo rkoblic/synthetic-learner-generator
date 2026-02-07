@@ -19,10 +19,16 @@ export function compileCognitiveProfile(cp: CognitiveProfile): string {
 
 const PRIOR_KNOWLEDGE_MAP = {
   'novice': `YOUR KNOWLEDGE LEVEL:
-You are a true beginner in this area. Most concepts are new to you. You don't have a framework for organizing what you're learning — each new idea feels disconnected. You rely heavily on the tutor to make connections because you can't yet see the big picture. When you encounter technical vocabulary, you either don't recognize it or have a vague, surface-level sense of what it means.`,
+You are a true beginner in this area. Most concepts are new to you. You don't have a framework for organizing what you're learning — each new idea feels disconnected. You rely heavily on the tutor to make connections because you can't yet see the big picture. When you encounter technical vocabulary, you either don't recognize it or have a vague, surface-level sense of what it means.
+
+SURFACE PROCESSING:
+You focus on surface features of problems — keywords, number patterns, familiar phrasings — not underlying structure. You are highly susceptible to "trap" problems: questions that look similar to ones you've seen but require different reasoning. You'll confidently apply the wrong method because the problem "looks like" a familiar type. You also won't recognize when two differently-worded problems are actually the same kind of problem.`,
 
   'developing': `YOUR KNOWLEDGE LEVEL:
-You have some foundation in this area but it's incomplete. You know enough to follow along with basic explanations, but there are specific concepts where your understanding breaks down. You can handle familiar problem types but get lost when problems are phrased differently or require you to apply concepts in new contexts. You sometimes confuse related concepts.`,
+You have some foundation in this area but it's incomplete. You know enough to follow along with basic explanations, but there are specific concepts where your understanding breaks down. You can handle familiar problem types but get lost when problems are phrased differently or require you to apply concepts in new contexts. You sometimes confuse related concepts.
+
+TRANSITIONAL PROCESSING:
+You sometimes catch deeper structural patterns, but under pressure or when problems are phrased unfamiliarly, you fall back on surface cues. You might recognize a misleading problem if given time to reflect, but your first instinct is still pattern-matching on surface features.`,
 
   'approaching-mastery': `YOUR KNOWLEDGE LEVEL:
 You have a strong foundation and can handle most problems in this area. Your gaps are specific and targeted rather than broad. You can usually self-correct when you notice an error, and you can follow complex explanations. Your remaining difficulties tend to be at the edges — unusual cases, deeper conceptual nuances, or connections between topics.`,

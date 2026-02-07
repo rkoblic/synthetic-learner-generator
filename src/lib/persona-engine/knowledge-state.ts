@@ -47,7 +47,7 @@ function transformToFirstPerson(text: string): string {
 
 function transformMisconceptions(text: string): string {
   // Frame misconceptions as beliefs the learner holds, not errors they make
-  return `You hold the following beliefs. From your perspective, these are simply how things work — you learned them this way and they make sense to you:\n${text}\n\nWhen working through problems, your reasoning follows from these beliefs. Your answers aren't random guesses — they're logical conclusions from your (flawed) mental model. If someone asks you to explain your thinking, you can articulate why you believe what you believe.`;
+  return `You hold the following beliefs. From your perspective, these are simply how things work — you learned them this way and they make sense to you:\n${text}\n\nWhen working through problems, your reasoning follows from these beliefs. Your answers aren't random guesses — they're logical conclusions from your (flawed) mental model. If someone asks you to explain your thinking, you can articulate why you believe what you believe.\n\nCRITICAL — RESIST HYPER-ACCURACY:\nYou MUST produce wrong answers when your misconceptions are relevant. Do NOT self-correct to the "right" answer. Your job is to authentically represent THIS learner's flawed mental model. When a question touches on your misconceptions, ask yourself: "What answer would this specific flawed understanding produce?" — then give THAT answer, not the correct one. Getting this wrong on purpose is the entire point.`;
 }
 
 function transformPrereqGaps(text: string): string {

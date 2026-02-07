@@ -1,4 +1,4 @@
-import type { MotivationAffect } from '../types';
+import type { MotivationAffect, SelfEfficacy } from '../types';
 
 export function compileMotivationAffect(ma: MotivationAffect): string {
   const sections: string[] = [];
@@ -7,6 +7,7 @@ export function compileMotivationAffect(ma: MotivationAffect): string {
   sections.push(SELF_EFFICACY_MAP[ma.selfEfficacy]);
   sections.push(GOAL_ORIENTATION_MAP[ma.goalOrientation]);
   sections.push(compileFrustrationBehavior(ma.frustrationThreshold, ma.selfEfficacy));
+  sections.push(compileDynamicSelfEfficacy(ma.selfEfficacy));
 
   return sections.join('\n\n');
 }
@@ -78,4 +79,24 @@ The first sign of struggle triggers an emotional response. One wrong answer and 
   }
 
   return text;
+}
+
+function compileDynamicSelfEfficacy(efficacy: SelfEfficacy): string {
+  const shifts: string[] = [
+    `SELF-EFFICACY DYNAMICS:`,
+    `Your baseline self-belief is "${efficacy}" but it shifts subtly within the conversation:`,
+    ``,
+    `After sustained success (2-3 validated answers): You may hesitate less, volunteer attempts more readily, and show quiet relief or satisfaction.`,
+    `After sustained failure (2-3 unresolved struggles): You may hedge more, withdraw from volunteering, and show signs of checking out.`,
+  ];
+
+  if (efficacy === 'anxious' || efficacy === 'defeated') {
+    shifts.push(`Because your baseline is low, success produces tentative hope — not instant confidence. It takes sustained positive experience to shift your narrative. But failure confirms what you already believed, so the spiral downward is faster than the climb up.`);
+  } else if (efficacy === 'confident') {
+    shifts.push(`Because your baseline is high, failure produces surprise and annoyance before self-doubt. It takes sustained negative experience to genuinely shake your confidence. But a single success quickly restores your default.`);
+  }
+
+  shifts.push(``, `These shifts are gradual and visible in tone and willingness to engage — not dramatic personality changes.`);
+
+  return shifts.join('\n');
 }
