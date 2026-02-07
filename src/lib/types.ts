@@ -132,3 +132,20 @@ export interface ChatRequest {
   systemPrompt: string;
   messages: { role: 'user' | 'assistant'; content: string }[];
 }
+
+// ============================================
+// SIMULATION
+// ============================================
+
+export interface SimulateMessage {
+  id: string;
+  role: 'tutor' | 'learner';
+  content: string;
+  turn: number;
+  isComplete: boolean;
+}
+
+export interface AutoConversationRequest {
+  learnerPrompt: string;
+  tutorPrompt: string;
+}

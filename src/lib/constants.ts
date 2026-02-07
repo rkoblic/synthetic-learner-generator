@@ -152,3 +152,10 @@ export const DEFAULT_COMMUNICATION_STYLE = {
 
 export const MAX_CONVERSATION_MESSAGES = 50;
 export const MAX_TOKENS_RESPONSE = 1024;
+
+// ============================================
+// SIMULATION LIMITS
+// ============================================
+
+export const SIMULATION_TURN_COUNT = 10;
+export const MAX_TOKENS_SIMULATION = 512;

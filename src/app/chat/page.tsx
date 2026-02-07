@@ -3,10 +3,12 @@
 import { useRouter } from 'next/navigation';
 import { useProfileStore } from '@/store/profile-store';
 import { ChatInterface } from '@/components/chat/chat-interface';
+import { SimulateInterface } from '@/components/simulate/simulate-interface';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import Link from 'next/link';
-import { Settings, Copy, MessageSquare } from 'lucide-react';
+import { Settings, Copy, MessageSquare, Play } from 'lucide-react';
 
 export default function ChatPage() {
   const router = useRouter();
@@ -68,12 +70,39 @@ export default function ChatPage() {
         </div>
       </div>
 
-      <div className="border rounded-lg h-[calc(100vh-200px)]">
-        <ChatInterface
-          systemPrompt={generatedPrompt}
-          learnerName={profile.name}
-        />
-      </div>
+      <Tabs defaultValue="chat">
+        <TabsList>
+          <TabsTrigger value="chat">
+            <MessageSquare className="h-3.5 w-3.5" />
+            Chat
+          </TabsTrigger>
+          <TabsTrigger value="simulate">
+            <Play className="h-3.5 w-3.5" />
+            Simulate
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="chat">
+          <div className="border rounded-lg h-[calc(100vh-240px)]">
+            <ChatInterface
+              systemPrompt={generatedPrompt}
+              learnerName={profile.name}
+            />
+          </div>
+        </TabsContent>
+
+        <TabsContent value="simulate">
+          <div className="border rounded-lg h-[calc(100vh-240px)]">
+            <SimulateInterface
+              systemPrompt={generatedPrompt}
+              learnerName={profile.name}
+              archetypeId={profile.archetypeId}
+              domain={profile.knowledgeState.domain}
+              topic={profile.knowledgeState.topic}
+            />
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
