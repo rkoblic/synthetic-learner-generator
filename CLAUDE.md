@@ -28,7 +28,7 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 | `/research` | Research & references — papers and theories behind the tool |
 
 ### Core Modules
-- **Persona engine** (`src/lib/persona-engine/`) — Deterministic template compiler (no LLM call) that translates a LearnerProfile into a behavioral system prompt. 7 modules: index, knowledge-state, cognitive-profile, motivation-affect, communication, trait-resolver, inner-monologue, escape-valves.
+- **Persona engine** (`src/lib/persona-engine/`) — Deterministic template compiler (no LLM call) that translates a LearnerProfile into a behavioral system prompt. 7 modules: index, knowledge-state, cognitive-profile, motivation-affect, communication, trait-resolver, inner-monologue, escape-valves. Includes 5 research-backed improvements: hyper-accuracy guard, pedagogical prediction frame, learning dynamics, depth-of-processing, and dynamic self-efficacy.
 - **Archetypes** (`src/lib/archetypes.ts`) — 7 static learner archetypes with pre-filled dimensions.
 - **Types** (`src/lib/types.ts`) — LearnerProfile, KnowledgeState, CognitiveProfile, MotivationAffect, CommunicationStyle, SimulateMessage.
 - **Constants** (`src/lib/constants.ts`) — Dimension option values, chat/simulation limits.
@@ -58,7 +58,7 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 - **Milestone 1 (Core Product)**: Complete
 - **Milestone 2 (Knowledge Graph Integration)**: Not started / may skip
 - **Milestone 3 (Polish & Deploy)**: Complete (polish done, pushed to GitHub, Vercel deploy pending manual setup)
-- **Research-informed improvements**: Deferred — see `.claude/projects/-Users-rachelkoblic-synthetic-learner-generator/memory/research-insights.md` for 5 specific prompt engine improvements backed by papers in `/research/`
+- **Research-informed prompt improvements**: Complete — 5 improvements implemented (hyper-accuracy guard, pedagogical prediction frame, learning dynamics, depth-of-processing, dynamic self-efficacy). Based on Lu & Wang 2024, Mannekote et al. 2024, Yuan et al. 2025, Marquez-Carpintero et al. 2025, Käser & Alexandron 2024.
 
 ## Style Guidelines
 - shadcn/ui components for all UI primitives
