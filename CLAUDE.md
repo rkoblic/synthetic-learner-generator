@@ -24,7 +24,7 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 | `/archetypes` | Archetype picker (7 cards + "Start from Scratch") |
 | `/builder` | Profile builder — 4-section form with dimension controls |
 | `/chat` | Chat interface with the synthetic learner + Simulate tab for auto-generated tutor-learner conversations |
-| `/export` | View/copy the generated persona prompt |
+| `/export` | View/copy the generated persona prompt, with explainer annotations on prompt structure |
 | `/research` | Research & references — papers and theories behind the tool |
 
 ### Core Modules
@@ -34,6 +34,7 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 - **Constants** (`src/lib/constants.ts`) — Dimension option values, chat/simulation limits.
 - **Tutor prompt** (`src/lib/tutor-prompt.ts`) — Demo Socratic tutor system prompt for simulation mode.
 - **Builder info content** (`src/lib/builder-info-content.ts`) — Research-backed info text for section popovers and dimension tooltips.
+- **Export info content** (`src/lib/export-info-content.ts`) — Prompt design explanations for the export page: overview block + per-section annotations with citations.
 - **Store** (`src/store/profile-store.ts`) — Zustand store for current profile.
 
 ### API Routes

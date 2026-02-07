@@ -5,8 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Copy, Check, Download } from 'lucide-react';
+import { Copy, Check, Download, ChevronDown, ChevronRight } from 'lucide-react';
 import type { PromptSections } from '@/lib/types';
+import { PROMPT_OVERVIEW, SECTION_ANNOTATIONS } from '@/lib/export-info-content';
 
 interface PromptDisplayProps {
   systemPrompt: string;
@@ -25,6 +26,7 @@ const SECTION_LABELS: Record<keyof PromptSections, string> = {
 
 export function PromptDisplay({ systemPrompt, sections }: PromptDisplayProps) {
   const [copied, setCopied] = useState(false);
+  const [overviewOpen, setOverviewOpen] = useState(false);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(systemPrompt);
@@ -72,6 +74,30 @@ export function PromptDisplay({ systemPrompt, sections }: PromptDisplayProps) {
         </div>
       </div>
 
+      <div>
+        <button
+          onClick={() => setOverviewOpen(!overviewOpen)}
+          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+        >
+          {overviewOpen ? (
+            <ChevronDown className="h-3.5 w-3.5" />
+          ) : (
+            <ChevronRight className="h-3.5 w-3.5" />
+          )}
+          About this prompt
+        </button>
+        {overviewOpen && (
+          <div className="mt-2 rounded-md border bg-muted/50 px-3 py-2.5">
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              {PROMPT_OVERVIEW.content}
+            </p>
+            <p className="text-[10px] text-muted-foreground/70 mt-1.5 italic">
+              {PROMPT_OVERVIEW.citation}
+            </p>
+          </div>
+        )}
+      </div>
+
       <Tabs defaultValue="full">
         <TabsList>
           <TabsTrigger value="full">Full Prompt</TabsTrigger>
@@ -96,12 +122,22 @@ export function PromptDisplay({ systemPrompt, sections }: PromptDisplayProps) {
               const content = sections[key];
               if (!content) return null;
 
+              const annotation = SECTION_ANNOTATIONS[key];
+
               return (
                 <Card key={key}>
                   <CardContent className="p-4">
-                    <h3 className="text-sm font-semibold mb-2 text-primary">
+                    <h3 className="text-sm font-semibold mb-1 text-primary">
                       {SECTION_LABELS[key]}
                     </h3>
+                    <p className="text-[11px] leading-relaxed text-muted-foreground/80 mb-2">
+                      {annotation.content}
+                      {annotation.citation && (
+                        <span className="text-[10px] italic text-muted-foreground/60">
+                          {' '}({annotation.citation})
+                        </span>
+                      )}
+                    </p>
                     <pre className="text-xs leading-relaxed whitespace-pre-wrap font-mono text-muted-foreground">
                       {content}
                     </pre>

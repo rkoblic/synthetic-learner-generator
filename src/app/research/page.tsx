@@ -92,6 +92,13 @@ const FOUNDATIONAL_THEORIES = [
     description:
       'Intrinsic motivation arises from autonomy, competence, and relatedness. Disengaged or resistant learners aren\'t being difficult — they often lack one or more of these needs in their learning context.',
   },
+  {
+    theory: 'Tutor-Student Interaction Analysis',
+    researchers: 'Chi et al., 2001',
+    dimension: 'Communication Style',
+    description:
+      'How students communicate — their questions, hesitations, and responses to correction — is the primary channel through which tutors diagnose understanding. A learner\'s communication style directly determines what a tutor can observe, making it critical for realistic simulated interactions.',
+  },
 ];
 
 export default function ResearchPage() {
