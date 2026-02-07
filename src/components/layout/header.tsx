@@ -2,8 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Brain, Check, ChevronRight } from 'lucide-react';
+import { Brain, Check, ChevronRight, BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const NAV_ITEMS = [
   { href: '/archetypes', label: 'Archetypes', step: 1 },
@@ -28,7 +33,7 @@ export function Header() {
           <Brain className="h-5 w-5 text-primary" />
           <span className="font-semibold text-sm hidden sm:inline">Synthetic Learner Generator</span>
         </Link>
-        <nav className="flex items-center gap-0.5">
+        <nav className="flex items-center gap-0.5 flex-1">
           {NAV_ITEMS.map((item, index) => {
             const isActive = item.step === currentStep;
             const isCompleted = item.step < currentStep;
@@ -64,6 +69,23 @@ export function Header() {
             );
           })}
         </nav>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Link
+              href="/research"
+              className={cn(
+                'ml-auto flex items-center justify-center p-2 rounded-md transition-colors',
+                pathname === '/research'
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+              )}
+              aria-label="Research & References"
+            >
+              <BookOpen className="h-4 w-4" />
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Research & References</TooltipContent>
+        </Tooltip>
       </div>
     </header>
   );

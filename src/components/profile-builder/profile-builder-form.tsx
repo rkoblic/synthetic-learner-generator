@@ -12,6 +12,8 @@ import { CommunicationSection } from './communication-section';
 import { useProfileStore } from '@/store/profile-store';
 import { MessageSquare, Copy, ChevronDown, RotateCcw, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { InfoPopover } from './info-popover';
+import { SECTION_INFO, type SectionInfoKey } from '@/lib/builder-info-content';
 
 export function ProfileBuilderForm() {
   const router = useRouter();
@@ -82,6 +84,7 @@ export function ProfileBuilderForm() {
           expanded={expandedSections.knowledge}
           onToggle={() => toggleSection('knowledge')}
           priority
+          infoKey="knowledge"
         >
           <KnowledgeStateSection />
         </SectionCard>
@@ -91,6 +94,7 @@ export function ProfileBuilderForm() {
           subtitle="How the learner thinks and processes information"
           expanded={expandedSections.cognitive}
           onToggle={() => toggleSection('cognitive')}
+          infoKey="cognitive"
         >
           <CognitiveSection />
         </SectionCard>
@@ -100,6 +104,7 @@ export function ProfileBuilderForm() {
           subtitle="How the learner feels about learning"
           expanded={expandedSections.motivation}
           onToggle={() => toggleSection('motivation')}
+          infoKey="motivation"
         >
           <MotivationSection />
         </SectionCard>
@@ -109,6 +114,7 @@ export function ProfileBuilderForm() {
           subtitle="How the learner talks and responds"
           expanded={expandedSections.communication}
           onToggle={() => toggleSection('communication')}
+          infoKey="communication"
         >
           <CommunicationSection />
         </SectionCard>
@@ -161,6 +167,7 @@ function SectionCard({
   expanded,
   onToggle,
   priority,
+  infoKey,
   children,
 }: {
   title: string;
@@ -168,8 +175,11 @@ function SectionCard({
   expanded: boolean;
   onToggle: () => void;
   priority?: boolean;
+  infoKey?: SectionInfoKey;
   children: React.ReactNode;
 }) {
+  const info = infoKey ? SECTION_INFO[infoKey] : null;
+
   return (
     <Card className={cn(priority && !expanded && 'border-primary/30')}>
       <button
@@ -178,8 +188,15 @@ function SectionCard({
         className="w-full flex items-center justify-between p-4 text-left hover:bg-muted/50 transition-colors rounded-t-lg"
       >
         <div>
-          <h2 className={cn('text-sm font-semibold', priority && 'text-primary')}>
+          <h2 className={cn('text-sm font-semibold inline-flex items-center', priority && 'text-primary')}>
             {title}
+            {info && (
+              <InfoPopover
+                title={info.title}
+                content={info.content}
+                citation={info.citation}
+              />
+            )}
           </h2>
           <p className="text-xs text-muted-foreground">{subtitle}</p>
         </div>

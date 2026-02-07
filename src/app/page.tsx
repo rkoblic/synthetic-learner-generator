@@ -26,6 +26,13 @@ export default function HomePage() {
       <p className="text-xs text-muted-foreground pt-4">
         No sign-up required. Persona generation is deterministic — no LLM calls until you chat.
       </p>
+
+      <Link
+        href="/research"
+        className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
+      >
+        Built on learning science research
+      </Link>
     </div>
   );
 }

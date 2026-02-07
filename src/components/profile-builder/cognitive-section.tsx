@@ -8,6 +8,7 @@ import {
   METACOGNITIVE_OPTIONS,
   LEARNING_PREFERENCE_OPTIONS,
 } from '@/lib/constants';
+import { DIMENSION_HINTS } from '@/lib/builder-info-content';
 import type { LearningPreference } from '@/lib/types';
 
 export function CognitiveSection() {
@@ -32,6 +33,7 @@ export function CognitiveSection() {
 
       <DimensionSelector
         label="Working Memory"
+        hint={DIMENSION_HINTS['Working Memory']}
         options={WORKING_MEMORY_OPTIONS}
         value={cp.workingMemoryLoad}
         onChange={(v) => update({ workingMemoryLoad: v })}
@@ -39,6 +41,7 @@ export function CognitiveSection() {
 
       <DimensionSelector
         label="Metacognitive Awareness"
+        hint={DIMENSION_HINTS['Metacognitive Awareness']}
         options={METACOGNITIVE_OPTIONS}
         value={cp.metacognitiveAwareness}
         onChange={(v) => update({ metacognitiveAwareness: v })}

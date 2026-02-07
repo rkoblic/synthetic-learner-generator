@@ -25,12 +25,14 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 | `/builder` | Profile builder — 4-section form with dimension controls |
 | `/chat` | Chat interface with the synthetic learner |
 | `/export` | View/copy the generated persona prompt |
+| `/research` | Research & references — papers and theories behind the tool |
 
 ### Core Modules
 - **Persona engine** (`src/lib/persona-engine/`) — Deterministic template compiler (no LLM call) that translates a LearnerProfile into a behavioral system prompt. 7 modules: index, knowledge-state, cognitive-profile, motivation-affect, communication, trait-resolver, inner-monologue, escape-valves.
 - **Archetypes** (`src/lib/archetypes.ts`) — 7 static learner archetypes with pre-filled dimensions.
 - **Types** (`src/lib/types.ts`) — LearnerProfile, KnowledgeState, CognitiveProfile, MotivationAffect, CommunicationStyle.
 - **Constants** (`src/lib/constants.ts`) — Dimension option values.
+- **Builder info content** (`src/lib/builder-info-content.ts`) — Research-backed info text for section popovers and dimension tooltips.
 - **Store** (`src/store/profile-store.ts`) — Zustand store for current profile.
 
 ### API Routes

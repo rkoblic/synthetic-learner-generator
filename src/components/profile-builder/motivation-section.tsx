@@ -8,6 +8,7 @@ import {
   GOAL_ORIENTATION_OPTIONS,
   FRUSTRATION_THRESHOLD_OPTIONS,
 } from '@/lib/constants';
+import { DIMENSION_HINTS } from '@/lib/builder-info-content';
 
 export function MotivationSection() {
   const ma = useProfileStore((s) => s.profile.motivationAffect);
@@ -31,6 +32,7 @@ export function MotivationSection() {
 
       <DimensionSelector
         label="Self-Efficacy"
+        hint={DIMENSION_HINTS['Self-Efficacy']}
         options={SELF_EFFICACY_OPTIONS}
         value={ma.selfEfficacy}
         onChange={(v) => update({ selfEfficacy: v })}
@@ -38,6 +40,7 @@ export function MotivationSection() {
 
       <DimensionSelector
         label="Goal Orientation"
+        hint={DIMENSION_HINTS['Goal Orientation']}
         options={GOAL_ORIENTATION_OPTIONS}
         value={ma.goalOrientation}
         onChange={(v) => update({ goalOrientation: v })}

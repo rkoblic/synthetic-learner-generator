@@ -2,9 +2,11 @@
 
 import { cn } from '@/lib/utils';
 import type { DimensionOption } from '@/lib/constants';
+import { InfoTooltip } from './info-tooltip';
 
 interface DimensionSelectorProps<T extends string> {
   label: string;
+  hint?: string;
   options: DimensionOption<T>[];
   value: T;
   onChange: (value: T) => void;
@@ -12,6 +14,7 @@ interface DimensionSelectorProps<T extends string> {
 
 export function DimensionSelector<T extends string>({
   label,
+  hint,
   options,
   value,
   onChange,
@@ -20,7 +23,10 @@ export function DimensionSelector<T extends string>({
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">{label}</label>
+      <label className="text-sm font-medium inline-flex items-center">
+        {label}
+        {hint && <InfoTooltip content={hint} />}
+      </label>
       <div className="flex gap-1 flex-wrap">
         {options.map((option) => (
           <button
