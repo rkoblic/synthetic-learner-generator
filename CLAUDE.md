@@ -20,7 +20,8 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 ### Pages
 | Route | Purpose |
 |-------|---------|
-| `/` | Archetype picker (7 cards + "Start from Scratch") |
+| `/` | Landing page — explains the tool, links to archetypes |
+| `/archetypes` | Archetype picker (7 cards + "Start from Scratch") |
 | `/builder` | Profile builder — 4-section form with dimension controls |
 | `/chat` | Chat interface with the synthetic learner |
 | `/export` | View/copy the generated persona prompt |
@@ -51,7 +52,7 @@ A Next.js app that generates realistic synthetic learner personas for testing AI
 ## Project Status
 - **Milestone 1 (Core Product)**: Complete
 - **Milestone 2 (Knowledge Graph Integration)**: Not started / may skip
-- **Milestone 3 (Polish & Deploy)**: Not started
+- **Milestone 3 (Polish & Deploy)**: Complete (polish done, pushed to GitHub, Vercel deploy pending manual setup)
 - **Research-informed improvements**: Deferred — see `.claude/projects/-Users-rachelkoblic-synthetic-learner-generator/memory/research-insights.md` for 5 specific prompt engine improvements backed by papers in `/research/`
 
 ## Style Guidelines

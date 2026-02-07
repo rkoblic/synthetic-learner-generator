@@ -24,7 +24,7 @@ export default function ExportPage() {
             Choose an archetype and configure a learner profile to view and export the persona prompt.
           </p>
         </div>
-        <Button onClick={() => router.push('/')}>
+        <Button onClick={() => router.push('/archetypes')}>
           Choose an Archetype
         </Button>
       </div>

@@ -25,7 +25,7 @@ export default function ChatPage() {
             Choose an archetype and configure a learner profile to start chatting.
           </p>
         </div>
-        <Button onClick={() => router.push('/')}>
+        <Button onClick={() => router.push('/archetypes')}>
           Choose an Archetype
         </Button>
       </div>

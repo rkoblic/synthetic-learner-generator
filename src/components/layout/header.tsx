@@ -6,7 +6,7 @@ import { Brain, Check, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Archetypes', step: 1 },
+  { href: '/archetypes', label: 'Archetypes', step: 1 },
   { href: '/builder', label: 'Builder', step: 2 },
   { href: '/chat', label: 'Chat', step: 3 },
   { href: '/export', label: 'Export', step: 4 },
